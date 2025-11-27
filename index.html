@@ -8,27 +8,315 @@
 
     <meta name="description" content="Soporte Starlink México, instalación profesional, venta de equipo Starlink, Starlink para WISP, Starlink para auto, actualización generación 4, Starlink Mini, facturación y reparación Starlink con CiBERALL®." />
 
-    <!-- Keywords principales -->
     <meta name="keywords" content="Soporte Starlink México, Instalación Starlink México, Venta equipo Starlink, Starlink para WISP, Starlink para auto, Distribuidor autorizado Starlink México, Actualización generación 4, Starlink Mini, Adaptador de corriente Starlink, Starlink gratis, Teléfono atención a clientes Starlink, Cómo cambiar plan Starlink, Facturación Starlink, Satélites LEO contra GEO, Cobertura Starlink, Reparación Starlink" />
 
-    <!-- Open Graph básico (opcional) -->
     <meta property="og:title" content="Starlink México | Instalación, Soporte y Venta Profesional | CiBERALL®" />
     <meta property="og:description" content="Instalación Starlink México, soporte técnico, venta de equipo Starlink, Starlink para WISP, Starlink para auto, facturación y reparación Starlink con CiBERALL®." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://ciberall.net/starlink-mexico" />
-    <!-- <meta property="og:image" content="URL_DE_TU_IMAGEN_OG.jpg" /> -->
 
-    <!-- Favicon (opcional) -->
-    <!-- <link rel="icon" href="https://ciberall.net/favicon.ico" /> -->
+    <link rel="icon" href="https://ciberall.net/favicon.ico" />
+
+    <style>
+        :root {
+            --rojo-naranja: #FF4B00;
+            --negro: #000000;
+            --gris-top: #E6E6E6;
+            --gris-bottom: #C0C0C0;
+            --azul-marino: #12144D;
+            --azul-real: #0033A0;
+            --blanco: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            color: #222;
+            background: linear-gradient(to bottom, var(--gris-top), var(--gris-bottom));
+        }
+
+        a {
+            color: var(--rojo-naranja);
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 16px;
+        }
+
+        /* TIRA SUPERIOR ROJO + LÍNEA NEGRA */
+        .top-stripe {
+            height: 10px;
+            background: var(--rojo-naranja);
+        }
+        .top-stripe-border {
+            height: 3px;
+            background: var(--negro);
+        }
+
+        /* HEADER */
+        header {
+            background: rgba(230, 230, 230, 0.95);
+            backdrop-filter: blur(6px);
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 0;
+        }
+
+        .logo img {
+            max-height: 52px;
+            display: block;
+        }
+
+        .main-nav ul {
+            list-style: none;
+            display: flex;
+            gap: 16px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .main-nav a {
+            color: var(--azul-marino);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .main-nav a:hover {
+            color: var(--rojo-naranja);
+        }
+
+        /* HERO CON VIDEO DE FONDO */
+        #hero {
+            position: relative;
+            min-height: 70vh;
+            color: var(--blanco);
+            overflow: hidden;
+            border-top: 4px solid var(--negro);
+            border-bottom: 6px solid var(--azul-real);
+        }
+
+        #hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: var(--azul-marino);
+            opacity: 0.90;
+            z-index: 1;
+        }
+
+        .hero-video-wrapper {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+            z-index: 0;
+        }
+
+        .hero-video-wrapper iframe {
+            width: 120%;
+            height: 120%;
+            position: absolute;
+            top: -10%;
+            left: -10%;
+            border: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            padding: 80px 0 90px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 18px;
+        }
+
+        .hero-content h1 {
+            font-size: 2.4rem;
+            line-height: 1.2;
+            max-width: 780px;
+        }
+
+        .hero-content p {
+            max-width: 640px;
+            font-size: 1rem;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+
+        .hero-cta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 10px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 20px;
+            border-radius: 999px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            border: none;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+        }
+
+        .btn-primary {
+            background: var(--rojo-naranja);
+            color: var(--blanco);
+        }
+
+        .btn-primary:hover {
+            filter: brightness(1.1);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--blanco);
+            border: 1px solid rgba(255,255,255,0.7);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.12);
+        }
+
+        /* SECCIONES GENERALES */
+        main section {
+            padding: 40px 0;
+        }
+
+        main section:nth-of-type(odd) {
+            background: rgba(255,255,255,0.85);
+        }
+
+        main section:nth-of-type(even) {
+            background: rgba(248,248,248,0.9);
+        }
+
+        h2 {
+            font-size: 1.6rem;
+            color: var(--azul-marino);
+            margin-bottom: 12px;
+        }
+
+        h3 {
+            font-size: 1.2rem;
+            color: var(--azul-real);
+            margin: 16px 0 8px;
+        }
+
+        p {
+            margin-bottom: 10px;
+        }
+
+        ul {
+            margin-left: 18px;
+            margin-top: 6px;
+        }
+
+        ul li {
+            margin-bottom: 4px;
+        }
+
+        /* CONTACTO / CTA */
+        #contacto-starlink .contact-info p {
+            margin-bottom: 6px;
+        }
+
+        /* FOOTER CON LÍNEA AZUL REAL */
+        footer {
+            background: #111111;
+            color: #cccccc;
+            padding: 24px 0 16px;
+            border-top: 6px solid var(--azul-real);
+            font-size: 0.85rem;
+        }
+
+        .footer-inner {
+            display: grid;
+            gap: 10px;
+        }
+
+        .footer-contact strong {
+            color: var(--blanco);
+        }
+
+        .footer-bottom {
+            margin-top: 10px;
+            border-top: 1px solid rgba(255,255,255,0.12);
+            padding-top: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .footer-bottom a {
+            color: #cccccc;
+            font-size: 0.8rem;
+        }
+
+        .footer-bottom a:hover {
+            color: var(--rojo-naranja);
+        }
+
+        .footer-back-top {
+            text-align: right;
+            font-size: 0.8rem;
+        }
+
+        @media (max-width: 900px) {
+            .header-inner {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+            }
+
+            .main-nav ul {
+                flex-wrap: wrap;
+            }
+
+            .hero-content h1 {
+                font-size: 1.9rem;
+            }
+        }
+    </style>
 </head>
 
 <body>
-    <!-- ================= HEADER ================ -->
+    <!-- FRANJA SUPERIOR ROJO + NEGRO -->
+    <div class="top-stripe"></div>
+    <div class="top-stripe-border"></div>
+
+    <!-- HEADER -->
     <header id="top">
-        <div class="container">
+        <div class="container header-inner">
             <div class="logo">
-                <!-- Logo CiBERALL® -->
-                <a href="https://ciberall.net/">CiBERALL®</a>
+                <a href="https://ipviasatelite.com/">
+                    <img src="https://ipviasatelite.com/planes/img/logo%20satelital%20ciberall.png" alt="CiBERALL® Internet Satelital" />
+                </a>
             </div>
 
             <nav class="main-nav">
@@ -36,7 +324,7 @@
                     <li><a href="#hero">Inicio</a></li>
                     <li><a href="#soporte-starlink-mexico">Soporte</a></li>
                     <li><a href="#instalacion-starlink-mexico">Instalación</a></li>
-                    <li><a href="#venta-equipo-starlink">Venta de equipo</a></li>
+                    <li><a href="#venta-equipo-starlink">Venta equipo</a></li>
                     <li><a href="#starlink-wisp">Starlink WISP</a></li>
                     <li><a href="#starlink-auto">Starlink Auto</a></li>
                     <li><a href="#contacto-starlink">Contacto</a></li>
@@ -45,26 +333,37 @@
         </div>
     </header>
 
-    <!-- ================= MAIN ================ -->
+    <!-- MAIN -->
     <main>
-        <!-- ========== HERO / INTRODUCCIÓN ========== -->
+        <!-- HERO CON VIDEO DE FONDO -->
         <section id="hero">
-            <div class="container">
-                <h1>Starlink México: Instalación, Soporte, Venta y Soluciones Profesionales</h1>
+            <div class="hero-video-wrapper">
+                <!-- Video de fondo YouTube -->
+                <iframe
+                    src="https://www.youtube.com/embed/sX1Y2JMK6g8?autoplay=1&mute=1&controls=0&loop=1&playlist=sX1Y2JMK6g8&modestbranding=1&playsinline=1"
+                    title="Starlink Background Video"
+                    allow="autoplay; encrypted-media">
+                </iframe>
+            </div>
+
+            <div class="container hero-content">
+                <h1>Starlink México: Instalación, Soporte y Soluciones Profesionales CiBERALL®</h1>
                 <p>
-                    En CiBERALL® integramos <strong>Starlink México</strong> con instalación profesional,
-                    soporte especializado, venta de equipo y soluciones avanzadas para WISP, empresas,
-                    vehículos y proyectos remotos.
+                    Integramos <strong>Starlink México</strong> con instalación profesional, soporte especializado,
+                    venta de equipo, actualización generación 4, Starlink Mini y soluciones avanzadas para WISP,
+                    empresas, vehículos y proyectos remotos en todo el país.
                 </p>
 
                 <div class="hero-cta">
-                    <a href="#contacto-starlink">Solicitar cotización</a>
-                    <a href="https://ciberall.net/precios" target="_blank" rel="noopener">Ver precios</a>
+                    <a href="#contacto-starlink" class="btn btn-primary">Solicitar cotización</a>
+                    <a href="https://ciberall.net/precios" target="_blank" rel="noopener" class="btn btn-secondary">
+                        Ver planes y precios
+                    </a>
                 </div>
             </div>
         </section>
 
-        <!-- ========== SECCIÓN: SOPORTE STARLINK MÉXICO ========== -->
+        <!-- A partir de aquí van todas las secciones de contenido SEO ya estructuradas -->
         <section id="soporte-starlink-mexico">
             <div class="container">
                 <h2>Soporte Starlink México</h2>
@@ -81,7 +380,6 @@
             </div>
         </section>
 
-        <!-- ========== SECCIÓN: INSTALACIÓN STARLINK MÉXICO ========== -->
         <section id="instalacion-starlink-mexico">
             <div class="container">
                 <h2>Instalación Starlink México</h2>
@@ -98,7 +396,6 @@
             </div>
         </section>
 
-        <!-- ========== SECCIÓN: VENTA EQUIPO STARLINK / GEN4 / MINI / ADAPTADOR ========== -->
         <section id="venta-equipo-starlink">
             <div class="container">
                 <h2>Venta de Equipo Starlink y Actualización Generación 4</h2>
@@ -116,7 +413,6 @@
             </div>
         </section>
 
-        <!-- ========== SECCIÓN: DISTRIBUIDOR AUTORIZADO STARLINK MÉXICO ========== -->
         <section id="distribuidor-autorizado-starlink-mexico">
             <div class="container">
                 <h2>Distribuidor Autorizado Starlink México</h2>
@@ -133,7 +429,6 @@
             </div>
         </section>
 
-        <!-- ========== SECCIÓN: STARLINK PARA WISP ========== -->
         <section id="starlink-wisp">
             <div class="container">
                 <h2>Starlink para WISP</h2>
@@ -150,7 +445,6 @@
             </div>
         </section>
 
-        <!-- ========== SECCIÓN: STARLINK PARA AUTO / MOVILIDAD ========== -->
         <section id="starlink-auto">
             <div class="container">
                 <h2>Starlink para Auto y Movilidad</h2>
@@ -167,7 +461,6 @@
             </div>
         </section>
 
-        <!-- ========== SECCIÓN: COBERTURA STARLINK ========== -->
         <section id="cobertura-starlink">
             <div class="container">
                 <h2>Cobertura Starlink en México</h2>
@@ -181,7 +474,6 @@
             </div>
         </section>
 
-        <!-- ========== SECCIÓN: SATÉLITES LEO VS GEO ========== -->
         <section id="satelites-leo-geo">
             <div class="container">
                 <h2>Satélites LEO contra GEO</h2>
@@ -205,7 +497,6 @@
             </div>
         </section>
 
-        <!-- ========== SECCIÓN: REPARACIÓN STARLINK ========== -->
         <section id="reparacion-starlink">
             <div class="container">
                 <h2>Reparación Starlink</h2>
@@ -223,12 +514,10 @@
             </div>
         </section>
 
-        <!-- ========== SECCIÓN: CAMBIO DE PLAN / STARLINK GRATIS / FACTURACIÓN ========== -->
         <section id="gestion-servicio-starlink">
             <div class="container">
-                <h2>Gestión de Servicio: Cambio de Plan, Starlink Gratis y Facturación</h2>
+                <h2>Gestión de Servicio Starlink</h2>
 
-                <!-- Cómo cambiar plan -->
                 <article id="cambiar-plan-starlink">
                     <h3>Cómo cambiar plan Starlink</h3>
                     <p>
@@ -238,7 +527,6 @@
                     </p>
                 </article>
 
-                <!-- Starlink gratis -->
                 <article id="starlink-gratis">
                     <h3>Starlink gratis: ¿mito o realidad?</h3>
                     <p>
@@ -248,7 +536,6 @@
                     </p>
                 </article>
 
-                <!-- Facturación -->
                 <article id="facturacion-starlink">
                     <h3>Facturación Starlink México</h3>
                     <p>
@@ -264,7 +551,6 @@
             </div>
         </section>
 
-        <!-- ========== SECCIÓN: TELÉFONO ATENCIÓN A CLIENTES STARLINK ========== -->
         <section id="telefono-atencion-clientes-starlink">
             <div class="container">
                 <h2>Teléfono de Atención a Clientes Starlink (vía CiBERALL®)</h2>
@@ -274,12 +560,12 @@
                     para ayudarte con soporte, dudas técnicas y seguimiento de casos.
                 </p>
                 <p>
-                    Contáctanos por teléfono o WhatsApp y deja que nuestro equipo técnico intermedie por ti.
+                    Contáctanos por llamada de voz, correo o WhatsApp y deja que nuestro equipo técnico
+                    intermedie por ti.
                 </p>
             </div>
         </section>
 
-        <!-- ========== SECCIÓN: CONTACTO / CTA ========== -->
         <section id="contacto-starlink">
             <div class="container">
                 <h2>Contacto Starlink México con CiBERALL®</h2>
@@ -290,26 +576,39 @@
                 </p>
 
                 <div class="contact-info">
-                    <p><strong>Email:</strong> <a href="mailto:contacto@ciberall.net">contacto@ciberall.net</a></p>
-                    <p><strong>Sitio web:</strong> <a href="https://ciberall.net/precios" target="_blank" rel="noopener">https://ciberall.net/precios</a></p>
-                    <!-- Ajusta con tu enlace real de WhatsApp -->
-                    <p><strong>WhatsApp:</strong> <a href="https://wa.me/5215511264075" target="_blank" rel="noopener">Enviar mensaje por WhatsApp</a></p>
+                    <p><strong>Email:</strong> <a href="mailto:hola@ciberall.com">hola@ciberall.com</a></p>
+                    <p><strong>Teléfono voz:</strong> 6644-38-6677</p>
+                    <p><strong>Llamada y mensaje a correo:</strong> 55-4162-9630</p>
+                    <p><strong>Celular y WhatsApp:</strong> 55-3964-8280 y 55-1126-4765</p>
+                    <p><strong>Planes y precios:</strong> <a href="https://ciberall.net/precios" target="_blank" rel="noopener">https://ciberall.net/precios</a></p>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- ================= FOOTER ================ -->
+    <!-- FOOTER -->
     <footer>
-        <div class="container">
-            <p>&copy; <span id="year"></span> CiBERALL®. Todos los derechos reservados.</p>
-            <p><a href="#top">Volver arriba</a></p>
-        </div>
+        <div class="container footer-inner">
+            <div class="footer-contact">
+                <p><strong>☄ CONTACTO (+52)</strong></p>
+                <p>☎︎ LLAMADA POR VOZ: 6644-38-6677</p>
+                <p>☎︎ LLAMADA Y MENSAJE A CORREO: 55-4162-9630</p>
+                <p>✆ CELULAR Y WHATSAPP: 55-3964-8280 · 55-1126-4765</p>
+                <p>✉ CORREO: <a href="mailto:hola@ciberall.com">hola@ciberall.com</a></p>
+            </div>
 
-        <script>
-            // Año dinámico en el footer (opcional)
-            document.getElementById('year').textContent = new Date().getFullYear();
-        </script>
+            <div class="footer-bottom">
+                <p>2025 - CiBER ALL ® INTERNET S DE RL DE CV "THE INTERNET COMPANY" - Derechos Reservados</p>
+                <p>
+                    <a href="https://ciberall.company.site/pages/privacy-policy" target="_blank" rel="noopener">
+                        Política de Privacidad
+                    </a>
+                </p>
+                <p class="footer-back-top">
+                    <a href="#top">Volver arriba ⤴</a>
+                </p>
+            </div>
+        </div>
     </footer>
 </body>
 </html>
