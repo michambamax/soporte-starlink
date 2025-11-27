@@ -14,18 +14,23 @@
     <meta property="og:description" content="Instalación Starlink México, soporte técnico, venta de equipo Starlink, Starlink para WISP, Starlink para auto, facturación y reparación Starlink con CiBERALL®." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://ciberall.net/starlink-mexico" />
+    <meta property="og:image" content="https://ciberall.net/img/og-ciberall-instalacion-profesional-starlink-mexico.jpg" />
 
     <link rel="icon" href="https://ciberall.net/favicon.ico" />
 
+    <!-- Fuentes: Russo One (títulos) y Exo (texto) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Exo:wght@300;400;600;700&family=Russo+One&display=swap" rel="stylesheet" />
+
     <style>
         :root {
-            --rojo-naranja: #FF4B00;
-            --negro: #000000;
-            --gris-top: #E6E6E6;
-            --gris-bottom: #C0C0C0;
+            --fondo: #000000;
+            --texto: #3399CC;
+            --boton: #FF6F00;
+            --borde: #FF6F00;
+            --accent: #A8FF00;
             --azul-marino: #12144D;
-            --azul-real: #0033A0;
-            --blanco: #ffffff;
         }
 
         * {
@@ -35,17 +40,33 @@
         }
 
         body {
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-            color: #222;
-            background: linear-gradient(to bottom, var(--gris-top), var(--gris-bottom));
+            font-family: "Exo", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            background-color: var(--fondo);
+            color: var(--texto);
         }
 
         a {
-            color: var(--rojo-naranja);
+            color: var(--accent);
             text-decoration: none;
         }
         a:hover {
+            color: var(--boton);
             text-decoration: underline;
+        }
+
+        h1, h2, h3 {
+            font-family: "Russo One", system-ui, sans-serif;
+            letter-spacing: 0.03em;
+        }
+
+        h1 {
+            color: var(--accent);
+        }
+        h2 {
+            color: var(--accent);
+        }
+        h3 {
+            color: var(--boton);
         }
 
         .container {
@@ -55,21 +76,20 @@
             padding: 0 16px;
         }
 
-        /* TIRA SUPERIOR ROJO + LÍNEA NEGRA */
+        /* FRANJA SUPERIOR */
         .top-stripe {
-            height: 10px;
-            background: var(--rojo-naranja);
+            height: 6px;
+            background: var(--boton);
         }
         .top-stripe-border {
-            height: 3px;
-            background: var(--negro);
+            height: 2px;
+            background: #000000;
         }
 
         /* HEADER */
         header {
-            background: rgba(230, 230, 230, 0.95);
-            backdrop-filter: blur(6px);
-            border-bottom: 1px solid rgba(0,0,0,0.1);
+            background: rgba(0, 0, 0, 0.9);
+            border-bottom: 1px solid var(--borde);
             position: sticky;
             top: 0;
             z-index: 100;
@@ -90,38 +110,28 @@
         .main-nav ul {
             list-style: none;
             display: flex;
-            gap: 16px;
+            gap: 14px;
             font-size: 0.9rem;
             font-weight: 600;
         }
 
         .main-nav a {
-            color: var(--azul-marino);
+            color: var(--texto);
             text-transform: uppercase;
-            letter-spacing: 0.05em;
+            letter-spacing: 0.08em;
         }
 
         .main-nav a:hover {
-            color: var(--rojo-naranja);
+            color: var(--accent);
         }
 
-        /* HERO CON VIDEO DE FONDO */
+        /* HERO CON VIDEO + IMAGEN */
         #hero {
             position: relative;
-            min-height: 70vh;
-            color: var(--blanco);
+            min-height: 75vh;
+            color: var(--texto);
             overflow: hidden;
-            border-top: 4px solid var(--negro);
-            border-bottom: 6px solid var(--azul-real);
-        }
-
-        #hero::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: var(--azul-marino);
-            opacity: 0.90;
-            z-index: 1;
+            border-bottom: 4px solid var(--boton);
         }
 
         .hero-video-wrapper {
@@ -138,36 +148,53 @@
             top: -10%;
             left: -10%;
             border: none;
+            filter: saturate(1.1) contrast(1.2) brightness(0.35);
         }
 
-        .hero-content {
+        #hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at top, rgba(18, 20, 77, 0.8), rgba(0, 0, 0, 0.9));
+            z-index: 1;
+        }
+
+        .hero-grid {
             position: relative;
             z-index: 2;
             padding: 80px 0 90px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            gap: 18px;
+            display: grid;
+            grid-template-columns: minmax(0, 1.5fr) minmax(0, 1.1fr);
+            gap: 32px;
+            align-items: center;
         }
 
-        .hero-content h1 {
-            font-size: 2.4rem;
-            line-height: 1.2;
-            max-width: 780px;
-        }
-
-        .hero-content p {
+        .hero-text p {
             max-width: 640px;
             font-size: 1rem;
             line-height: 1.6;
-            opacity: 0.9;
+        }
+
+        .hero-badges {
+            margin-top: 12px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            font-size: 0.75rem;
+        }
+
+        .hero-badge {
+            border: 1px solid rgba(168, 255, 0, 0.7);
+            border-radius: 999px;
+            padding: 4px 10px;
+            text-transform: uppercase;
         }
 
         .hero-cta {
             display: flex;
             flex-wrap: wrap;
             gap: 12px;
-            margin-top: 10px;
+            margin-top: 18px;
         }
 
         .btn {
@@ -176,31 +203,66 @@
             justify-content: center;
             padding: 10px 20px;
             border-radius: 999px;
-            font-weight: 600;
+            font-weight: 700;
             font-size: 0.95rem;
-            border: none;
+            border: 1px solid var(--borde);
             cursor: pointer;
             text-transform: uppercase;
-            letter-spacing: 0.06em;
+            letter-spacing: 0.08em;
         }
 
         .btn-primary {
-            background: var(--rojo-naranja);
-            color: var(--blanco);
+            background: var(--boton);
+            color: #000000;
+            box-shadow: 0 0 12px rgba(255, 111, 0, 0.7);
         }
 
         .btn-primary:hover {
-            filter: brightness(1.1);
+            filter: brightness(1.08);
+            box-shadow: 0 0 16px rgba(168, 255, 0, 0.9);
         }
 
         .btn-secondary {
             background: transparent;
-            color: var(--blanco);
-            border: 1px solid rgba(255,255,255,0.7);
+            color: var(--accent);
         }
 
         .btn-secondary:hover {
-            background: rgba(255,255,255,0.12);
+            background: rgba(255, 111, 0, 0.15);
+        }
+
+        .hero-image {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .hero-image-main {
+            border-radius: 18px;
+            overflow: hidden;
+            border: 2px solid var(--borde);
+            box-shadow: 0 0 20px rgba(168, 255, 0, 0.4);
+        }
+
+        .hero-image-main img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        .hero-image-strip {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 6px;
+        }
+
+        .hero-image-strip img {
+            width: 100%;
+            height: 70px;
+            object-fit: cover;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 111, 0, 0.6);
         }
 
         /* SECCIONES GENERALES */
@@ -209,27 +271,21 @@
         }
 
         main section:nth-of-type(odd) {
-            background: rgba(255,255,255,0.85);
+            background: #020611;
         }
 
         main section:nth-of-type(even) {
-            background: rgba(248,248,248,0.9);
+            background: #050910;
         }
 
-        h2 {
-            font-size: 1.6rem;
-            color: var(--azul-marino);
-            margin-bottom: 12px;
-        }
-
-        h3 {
-            font-size: 1.2rem;
-            color: var(--azul-real);
-            margin: 16px 0 8px;
+        section .section-inner {
+            border-left: 3px solid var(--borde);
+            padding-left: 14px;
         }
 
         p {
             margin-bottom: 10px;
+            font-size: 0.95rem;
         }
 
         ul {
@@ -241,17 +297,52 @@
             margin-bottom: 4px;
         }
 
-        /* CONTACTO / CTA */
-        #contacto-starlink .contact-info p {
-            margin-bottom: 6px;
+        /* GALERÍA DE IMÁGENES / ESCENARIOS */
+        #galeria-starlink .grid {
+            margin-top: 18px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 14px;
         }
 
-        /* FOOTER CON LÍNEA AZUL REAL */
+        .gallery-item {
+            border: 1px solid var(--borde);
+            border-radius: 12px;
+            overflow: hidden;
+            background: radial-gradient(circle at top, #12144D 0%, #000000 70%);
+        }
+
+        .gallery-item img {
+            display: block;
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+
+        .gallery-caption {
+            padding: 8px 10px 10px;
+            font-size: 0.78rem;
+        }
+
+        .badge-tag {
+            display: inline-block;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            color: var(--accent);
+        }
+
+        /* CONTACTO */
+        #contacto-starlink .contact-info p {
+            margin-bottom: 6px;
+            font-size: 0.9rem;
+        }
+
+        /* FOOTER */
         footer {
-            background: #111111;
-            color: #cccccc;
+            background: #000000;
+            color: var(--texto);
             padding: 24px 0 16px;
-            border-top: 6px solid var(--azul-real);
+            border-top: 3px solid var(--borde);
             font-size: 0.85rem;
         }
 
@@ -261,12 +352,12 @@
         }
 
         .footer-contact strong {
-            color: var(--blanco);
+            color: var(--accent);
         }
 
         .footer-bottom {
             margin-top: 10px;
-            border-top: 1px solid rgba(255,255,255,0.12);
+            border-top: 1px solid rgba(255, 111, 0, 0.4);
             padding-top: 10px;
             display: flex;
             flex-direction: column;
@@ -274,12 +365,12 @@
         }
 
         .footer-bottom a {
-            color: #cccccc;
+            color: var(--texto);
             font-size: 0.8rem;
         }
 
         .footer-bottom a:hover {
-            color: var(--rojo-naranja);
+            color: var(--accent);
         }
 
         .footer-back-top {
@@ -298,15 +389,20 @@
                 flex-wrap: wrap;
             }
 
-            .hero-content h1 {
-                font-size: 1.9rem;
+            .hero-grid {
+                grid-template-columns: minmax(0, 1fr);
+                padding-top: 70px;
+            }
+
+            .hero-image-strip img {
+                height: 60px;
             }
         }
     </style>
 </head>
 
 <body>
-    <!-- FRANJA SUPERIOR ROJO + NEGRO -->
+    <!-- FRANJA SUPERIOR -->
     <div class="top-stripe"></div>
     <div class="top-stripe-border"></div>
 
@@ -324,9 +420,9 @@
                     <li><a href="#hero">Inicio</a></li>
                     <li><a href="#soporte-starlink-mexico">Soporte</a></li>
                     <li><a href="#instalacion-starlink-mexico">Instalación</a></li>
-                    <li><a href="#venta-equipo-starlink">Venta equipo</a></li>
-                    <li><a href="#starlink-wisp">Starlink WISP</a></li>
-                    <li><a href="#starlink-auto">Starlink Auto</a></li>
+                    <li><a href="#venta-equipo-starlink">Venta</a></li>
+                    <li><a href="#starlink-wisp">WISP</a></li>
+                    <li><a href="#galeria-starlink">Escenarios</a></li>
                     <li><a href="#contacto-starlink">Contacto</a></li>
                 </ul>
             </nav>
@@ -335,10 +431,9 @@
 
     <!-- MAIN -->
     <main>
-        <!-- HERO CON VIDEO DE FONDO -->
+        <!-- HERO -->
         <section id="hero">
             <div class="hero-video-wrapper">
-                <!-- Video de fondo YouTube -->
                 <iframe
                     src="https://www.youtube.com/embed/sX1Y2JMK6g8?autoplay=1&mute=1&controls=0&loop=1&playlist=sX1Y2JMK6g8&modestbranding=1&playsinline=1"
                     title="Starlink Background Video"
@@ -346,26 +441,45 @@
                 </iframe>
             </div>
 
-            <div class="container hero-content">
-                <h1>Starlink México: Instalación, Soporte y Soluciones Profesionales CiBERALL®</h1>
-                <p>
-                    Integramos <strong>Starlink México</strong> con instalación profesional, soporte especializado,
-                    venta de equipo, actualización generación 4, Starlink Mini y soluciones avanzadas para WISP,
-                    empresas, vehículos y proyectos remotos en todo el país.
-                </p>
+            <div class="container hero-grid">
+                <div class="hero-text">
+                    <h1>Starlink México con instalación y soporte profesional CiBERALL®</h1>
+                    <p>
+                        Integramos <strong>Starlink México</strong> con ingeniería, instalación certificada, soporte
+                        humano y soluciones avanzadas para WISP, corporativos, flotas móviles y proyectos remotos en todo el país.
+                    </p>
 
-                <div class="hero-cta">
-                    <a href="#contacto-starlink" class="btn btn-primary">Solicitar cotización</a>
-                    <a href="https://ciberall.net/precios" target="_blank" rel="noopener" class="btn btn-secondary">
-                        Ver planes y precios
-                    </a>
+                    <div class="hero-badges">
+                        <span class="hero-badge">Distribuidor autorizado Starlink</span>
+                        <span class="hero-badge">Instalación profesional</span>
+                        <span class="hero-badge">Soporte técnico en México</span>
+                    </div>
+
+                    <div class="hero-cta">
+                        <a href="#contacto-starlink" class="btn btn-primary">Solicitar cotización</a>
+                        <a href="https://ciberall.net/precios" target="_blank" rel="noopener" class="btn btn-secondary">
+                            Ver planes y precios
+                        </a>
+                    </div>
+                </div>
+
+                <div class="hero-image">
+                    <div class="hero-image-main">
+                        <img src="https://ciberall.net/img/og-ciberall-instalacion-profesional-starlink-mexico.jpg"
+                             alt="Instalación profesional Starlink en México con CiBERALL" />
+                    </div>
+                    <div class="hero-image-strip">
+                        <img src="https://ciberall.net/imagenes/spacex/internet-espacial-ciberall.jpg" alt="Internet espacial CiBERALL" />
+                        <img src="https://ciberall.net/starlink/img/ciberall-proveedor-starlink-mexico.png" alt="Proveedor Starlink México CiBERALL" />
+                        <img src="https://ciberall.net/leo/img/Ciberall-Internet-Marino-Starlink.png" alt="Internet marino Starlink CiBERALL" />
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- A partir de aquí van todas las secciones de contenido SEO ya estructuradas -->
+        <!-- CONTENIDO SEO -->
         <section id="soporte-starlink-mexico">
-            <div class="container">
+            <div class="container section-inner">
                 <h2>Soporte Starlink México</h2>
                 <p>
                     Ofrecemos <strong>soporte Starlink México</strong> con atención humana para diagnóstico,
@@ -381,7 +495,7 @@
         </section>
 
         <section id="instalacion-starlink-mexico">
-            <div class="container">
+            <div class="container section-inner">
                 <h2>Instalación Starlink México</h2>
                 <p>
                     Realizamos <strong>instalación Starlink México</strong> en hogares, negocios, industrias y
@@ -397,7 +511,7 @@
         </section>
 
         <section id="venta-equipo-starlink">
-            <div class="container">
+            <div class="container section-inner">
                 <h2>Venta de Equipo Starlink y Actualización Generación 4</h2>
                 <p>
                     Gestionamos la <strong>venta de equipo Starlink</strong> y sus accesorios en México, incluyendo
@@ -414,7 +528,7 @@
         </section>
 
         <section id="distribuidor-autorizado-starlink-mexico">
-            <div class="container">
+            <div class="container section-inner">
                 <h2>Distribuidor Autorizado Starlink México</h2>
                 <p>
                     CiBERALL® opera como <strong>distribuidor autorizado Starlink México</strong>, brindando
@@ -430,7 +544,7 @@
         </section>
 
         <section id="starlink-wisp">
-            <div class="container">
+            <div class="container section-inner">
                 <h2>Starlink para WISP</h2>
                 <p>
                     Diseñamos soluciones de <strong>Starlink para WISP</strong> que permiten ampliar cobertura,
@@ -446,7 +560,7 @@
         </section>
 
         <section id="starlink-auto">
-            <div class="container">
+            <div class="container section-inner">
                 <h2>Starlink para Auto y Movilidad</h2>
                 <p>
                     Con nuestra solución de <strong>Starlink para auto</strong>, convertimos tu vehículo en una
@@ -461,8 +575,66 @@
             </div>
         </section>
 
+        <!-- GALERÍA / ESCENARIOS DE USO -->
+        <section id="galeria-starlink">
+            <div class="container section-inner">
+                <h2>Escenarios de uso Starlink con CiBERALL®</h2>
+                <p>Conectividad satelital para tierra, mar y movilidad avanzada.</p>
+
+                <div class="grid">
+                    <div class="gallery-item">
+                        <img src="https://ciberall.net/imagenes/spacex/internet-espacial-ciberall.jpg" alt="Internet espacial CiBERALL" />
+                        <div class="gallery-caption">
+                            <span class="badge-tag">Backhaul espacial</span><br />
+                            Integración de internet espacial para proyectos de alta disponibilidad.
+                        </div>
+                    </div>
+
+                    <div class="gallery-item">
+                        <img src="https://ipviasatelite.com/imagenes/starlink/starlink-mini-embarcacion-ciberall.png" alt="Starlink Mini en embarcación" />
+                        <div class="gallery-caption">
+                            <span class="badge-tag">Starlink Mini</span><br />
+                            Solución compacta ideal para embarcaciones, RV y misiones móviles.
+                        </div>
+                    </div>
+
+                    <div class="gallery-item">
+                        <img src="https://ipviasatelite.com/imagenes/starlink/STARLINK.png" alt="Antena Starlink y router" />
+                        <div class="gallery-caption">
+                            <span class="badge-tag">Equipo Starlink</span><br />
+                            Venta de antenas, routers y adaptadores originales para México.
+                        </div>
+                    </div>
+
+                    <div class="gallery-item">
+                        <img src="https://ipviasatelite.com/imagenes/starlink/1.jpg" alt="Instalación Starlink en campo" />
+                        <div class="gallery-caption">
+                            <span class="badge-tag">Instalación profesional</span><br />
+                            Montajes optimizados en zonas rurales y sitios remotos.
+                        </div>
+                    </div>
+
+                    <div class="gallery-item">
+                        <img src="https://ciberall.net/leo/img/Ciberall-Internet-Marino-Starlink.png" alt="Internet marino Starlink" />
+                        <div class="gallery-caption">
+                            <span class="badge-tag">Internet marino</span><br />
+                            Conectividad LEO para yates, barcos y plataformas marítimas.
+                        </div>
+                    </div>
+
+                    <div class="gallery-item">
+                        <img src="https://ciberall.net/starlink/img/ciberall-proveedor-starlink-mexico.png" alt="Proveedor Starlink México" />
+                        <div class="gallery-caption">
+                            <span class="badge-tag">Proveedor autorizado</span><br />
+                            CiBERALL® como integrador y distribuidor técnico Starlink en México.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section id="cobertura-starlink">
-            <div class="container">
+            <div class="container section-inner">
                 <h2>Cobertura Starlink en México</h2>
                 <p>
                     La <strong>cobertura Starlink</strong> incluye gran parte del territorio mexicano: ciudades,
@@ -475,7 +647,7 @@
         </section>
 
         <section id="satelites-leo-geo">
-            <div class="container">
+            <div class="container section-inner">
                 <h2>Satélites LEO contra GEO</h2>
                 <p>
                     Explicamos de forma clara la diferencia entre <strong>satélites LEO contra GEO</strong>
@@ -498,7 +670,7 @@
         </section>
 
         <section id="reparacion-starlink">
-            <div class="container">
+            <div class="container section-inner">
                 <h2>Reparación Starlink</h2>
                 <p>
                     Nuestro servicio de <strong>reparación Starlink</strong> incluye diagnóstico de hardware,
@@ -515,7 +687,7 @@
         </section>
 
         <section id="gestion-servicio-starlink">
-            <div class="container">
+            <div class="container section-inner">
                 <h2>Gestión de Servicio Starlink</h2>
 
                 <article id="cambiar-plan-starlink">
@@ -552,7 +724,7 @@
         </section>
 
         <section id="telefono-atencion-clientes-starlink">
-            <div class="container">
+            <div class="container section-inner">
                 <h2>Teléfono de Atención a Clientes Starlink (vía CiBERALL®)</h2>
                 <p>
                     Aunque la marca maneja la mayoría de sus procesos en línea, a través de CiBERALL®
@@ -567,7 +739,7 @@
         </section>
 
         <section id="contacto-starlink">
-            <div class="container">
+            <div class="container section-inner">
                 <h2>Contacto Starlink México con CiBERALL®</h2>
                 <p>
                     Si necesitas <strong>soporte Starlink México</strong>, instalación, venta de equipo,
