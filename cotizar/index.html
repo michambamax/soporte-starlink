@@ -35,6 +35,70 @@
       min-height: 100vh;
     }
 
+    .password-gate {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 22px;
+      background:
+        radial-gradient(circle at top left, rgba(168,255,0,.15) 0%, transparent 30%),
+        radial-gradient(circle at top right, rgba(255,111,0,.22) 0%, transparent 34%),
+        #000000;
+    }
+
+    .password-card {
+      width: min(430px, 100%);
+      padding: 30px;
+      border-radius: 24px;
+      border: 2px solid var(--accent);
+      background: #050505;
+      box-shadow: 0 0 40px rgba(255,111,0,.25);
+      text-align: center;
+    }
+
+    .password-card img {
+      width: min(280px, 80%);
+      margin-bottom: 18px;
+    }
+
+    .password-card h2 {
+      margin: 0 0 8px;
+      font-family: 'Orbitron', 'Poppins', sans-serif;
+      color: var(--accent-2);
+    }
+
+    .password-card p {
+      margin: 0 0 18px;
+      color: var(--text-soft);
+    }
+
+    .password-card input {
+      text-align: center;
+      margin-bottom: 14px;
+    }
+
+    .password-card button {
+      width: 100%;
+      background: linear-gradient(135deg, var(--accent), #ff8f2a);
+      color: #000000;
+    }
+
+    .password-card small {
+      display: block;
+      min-height: 20px;
+      margin-top: 12px;
+      color: #ff8f2a;
+      font-weight: 700;
+    }
+
+    body.locked main,
+    body.locked header {
+      display: none;
+    }
+
     .hero {
       color: var(--text);
       padding: 34px 18px 24px;
@@ -417,6 +481,16 @@
   </style>
 </head>
 <body>
+  <div id="passwordGate" class="password-gate">
+    <div class="password-card">
+      <img src="https://ciberall.net/Ciber%20ALL%C2%AEINTERNET%20LOGO%20.png" alt="CiberALL Internet" />
+      <h2>Acceso restringido</h2>
+      <p>Ingrese la contraseña para abrir el cotizador Starlink.</p>
+      <input id="passwordInput" type="password" placeholder="Contraseña" autocomplete="off" />
+      <button type="button" onclick="checkPassword()">Entrar</button>
+      <small id="passwordError"></small>
+    </div>
+  </div>
   <header class="hero">
     <div class="brand-logo">
       <img src="https://ciberall.net/Ciber%20ALL%C2%AEINTERNET%20LOGO%20.png" alt="CiberALL Internet" />
@@ -607,6 +681,41 @@
   </main>
 
   <script>
+    document.body.classList.add('locked');
+
+    const ACCESS_PASSWORD = 'C1ber@11';
+
+    function checkPassword() {
+      const input = document.getElementById('passwordInput');
+      const error = document.getElementById('passwordError');
+      const gate = document.getElementById('passwordGate');
+
+      if (input.value === ACCESS_PASSWORD) {
+        sessionStorage.setItem('ciberallQuoteAccess', 'ok');
+        document.body.classList.remove('locked');
+        gate.style.display = 'none';
+      } else {
+        error.innerText = 'Contraseña incorrecta. Intente nuevamente.';
+        input.value = '';
+        input.focus();
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const gate = document.getElementById('passwordGate');
+      const input = document.getElementById('passwordInput');
+
+      if (sessionStorage.getItem('ciberallQuoteAccess') === 'ok') {
+        document.body.classList.remove('locked');
+        gate.style.display = 'none';
+      } else {
+        input.focus();
+      }
+
+      input.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter') checkPassword();
+      });
+    });
     const money = new Intl.NumberFormat('es-MX', {
       style: 'currency',
       currency: 'MXN'
@@ -694,4 +803,3 @@
   </script>
 </body>
 </html>
-
