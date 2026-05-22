@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CiberALL® | Cotizador Starlink</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #000000;
+      --card: #050505;
+      --card-2: #0b0f12;
+      --text: #3399CC;
+      --text-soft: #8fd3ef;
+      --white: #ffffff;
+      --muted: #94a3b8;
+      --accent: #FF6F00;
+      --accent-2: #A8FF00;
+      --line: rgba(255, 111, 0, .55);
+      --shadow: rgba(255, 111, 0, .22);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(168,255,0,.15) 0%, transparent 30%),
+        radial-gradient(circle at top right, rgba(255,111,0,.22) 0%, transparent 34%),
+        linear-gradient(135deg, #000000 0%, #071014 52%, #000000 100%);
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    .hero {
+      color: var(--text);
+      padding: 34px 18px 24px;
+      text-align: center;
+    }
+
+    .brand-logo {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px 24px;
+      border: 2px solid var(--accent);
+      border-radius: 24px;
+      background: #000000;
+      box-shadow: 0 0 28px var(--shadow), inset 0 0 24px rgba(255,111,0,.08);
+      margin-bottom: 18px;
+    }
+
+    .brand-logo img {
+      width: min(360px, 82vw);
+      max-height: 110px;
+      object-fit: contain;
+      display: block;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 16px;
+      border: 1px solid var(--accent);
+      border-radius: 999px;
+      background: rgba(51,153,204,.10);
+      margin-bottom: 18px;
+      font-weight: 800;
+      letter-spacing: .4px;
+      color: var(--white);
+    }
+
+    .brand-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--accent-2);
+      box-shadow: 0 0 16px var(--accent-2);
+    }
+
+    .hero h1 {
+      margin: 0;
+      font-family: 'Orbitron', 'Poppins', sans-serif;
+      font-size: clamp(26px, 4.8vw, 46px);
+      line-height: 1.12;
+      color: var(--text);
+      text-shadow: 0 0 18px rgba(51,153,204,.28);
+    }
+
+    .hero p {
+      max-width: 900px;
+      margin: 14px auto 0;
+      color: var(--text-soft);
+      font-size: 17px;
+    }
+
+    .container {
+      width: min(1180px, calc(100% - 28px));
+      margin: 0 auto 44px;
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 22px;
+      align-items: start;
+    }
+
+    .card {
+      background: var(--card);
+      color: var(--text);
+      border-radius: 22px;
+      box-shadow: 0 24px 70px rgba(0,0,0,.42), 0 0 20px rgba(255,111,0,.10);
+      overflow: hidden;
+      border: 1px solid var(--line);
+    }
+
+    .card-header {
+      padding: 22px 24px;
+      border-bottom: 1px solid var(--line);
+      background: linear-gradient(135deg, #000000, #101820 55%, #050505);
+    }
+
+    .card-header h2 {
+      margin: 0 0 6px;
+      font-family: 'Orbitron', 'Poppins', sans-serif;
+      font-size: 22px;
+      color: var(--accent-2);
+    }
+
+    .card-header p {
+      margin: 0;
+      color: var(--text-soft);
+      font-size: 14px;
+    }
+
+    .card-body { padding: 24px; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+
+    .field.full { grid-column: 1 / -1; }
+
+    label {
+      font-weight: 800;
+      font-size: 13px;
+      color: var(--text);
+    }
+
+    input, select, textarea {
+      width: 100%;
+      border: 1px solid rgba(255,111,0,.72);
+      border-radius: 13px;
+      padding: 12px 13px;
+      font-size: 15px;
+      outline: none;
+      background: #000000;
+      color: var(--white);
+      transition: border-color .2s, box-shadow .2s;
+      font-family: 'Poppins', Arial, Helvetica, sans-serif;
+    }
+
+    input::placeholder, textarea::placeholder { color: #64748b; }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--accent-2);
+      box-shadow: 0 0 0 4px rgba(168,255,0,.13);
+    }
+
+    textarea {
+      min-height: 92px;
+      resize: vertical;
+    }
+
+    .section-title {
+      grid-column: 1 / -1;
+      margin: 10px 0 0;
+      padding-top: 8px;
+      border-top: 1px dashed var(--accent);
+      color: var(--accent-2);
+      font-size: 15px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: .6px;
+    }
+
+    .actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 22px;
+    }
+
+    button {
+      border: 1px solid var(--accent);
+      border-radius: 14px;
+      padding: 13px 18px;
+      font-weight: 900;
+      font-size: 15px;
+      cursor: pointer;
+      transition: transform .15s, box-shadow .15s;
+      font-family: 'Poppins', Arial, Helvetica, sans-serif;
+    }
+
+    button:hover { transform: translateY(-1px); }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), #ff8f2a);
+      color: #000000;
+      box-shadow: 0 12px 30px rgba(255,111,0,.34);
+    }
+
+    .btn-secondary {
+      background: #000000;
+      color: var(--text);
+    }
+
+    .summary {
+      position: sticky;
+      top: 18px;
+    }
+
+    .proposal-top {
+      background:
+        radial-gradient(circle at top right, rgba(168,255,0,.18), transparent 38%),
+        linear-gradient(135deg, #000000, #101820 58%, #000000);
+      color: var(--text);
+      padding: 24px;
+      border-bottom: 1px solid var(--accent);
+    }
+
+    .proposal-logo {
+      background: #000000;
+      border-radius: 18px;
+      padding: 12px 16px;
+      border: 1px solid var(--accent);
+      display: inline-flex;
+      margin-bottom: 16px;
+      box-shadow: 0 0 22px var(--shadow);
+    }
+
+    .proposal-logo img {
+      width: 240px;
+      max-width: 100%;
+      max-height: 90px;
+      object-fit: contain;
+      display: block;
+    }
+
+    .proposal-top h2 {
+      margin: 0;
+      font-family: 'Orbitron', 'Poppins', sans-serif;
+      font-size: 22px;
+      line-height: 1.2;
+      color: var(--accent-2);
+    }
+
+    .proposal-top p {
+      margin: 8px 0 0;
+      color: var(--text);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .quote-id {
+      display: inline-block;
+      margin-top: 14px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: rgba(51,153,204,.12);
+      border: 1px solid var(--accent);
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--white);
+    }
+
+    .summary-body { padding: 22px 24px 24px; }
+
+    .client-box {
+      background: var(--card-2);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 15px;
+      margin-bottom: 16px;
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--text-soft);
+    }
+
+    .client-box strong { color: var(--accent-2); }
+
+    .line-item {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 11px 0;
+      border-bottom: 1px solid rgba(255,111,0,.35);
+      font-size: 14px;
+    }
+
+    .line-item span:first-child { color: var(--text); }
+    .line-item span:last-child {
+      font-weight: 900;
+      white-space: nowrap;
+      color: var(--white);
+    }
+
+    .total {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 18px;
+      padding: 18px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, #000000, #141414);
+      border: 2px solid var(--accent);
+      box-shadow: 0 0 22px rgba(255,111,0,.18);
+    }
+
+    .total small {
+      display: block;
+      color: var(--text-soft);
+      font-weight: 800;
+      margin-bottom: 4px;
+    }
+
+    .total strong {
+      font-size: 28px;
+      color: var(--accent-2);
+      font-family: 'Orbitron', 'Poppins', sans-serif;
+    }
+
+    .terms {
+      margin-top: 18px;
+      padding: 16px;
+      border-radius: 16px;
+      background: #081014;
+      border: 1px solid var(--accent);
+      font-size: 13px;
+      color: var(--text-soft);
+    }
+
+    .terms h3 {
+      margin: 0 0 8px;
+      color: var(--accent-2);
+      font-size: 15px;
+    }
+
+    .terms ul {
+      margin: 0;
+      padding-left: 18px;
+    }
+
+    .terms li { margin-bottom: 6px; }
+
+    .print-order-box {
+      margin-top: 18px;
+      padding: 16px;
+      border-radius: 16px;
+      background: #000000;
+      border: 2px solid var(--accent-2);
+      color: var(--text);
+      text-align: center;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .print-order-box strong {
+      color: var(--accent-2);
+    }
+
+    .print-order-box a {
+      color: var(--accent);
+      font-weight: 900;
+      text-decoration: none;
+      word-break: break-word;
+    }
+
+    .footer-note {
+      margin-top: 16px;
+      color: var(--muted);
+      font-size: 12px;
+      text-align: center;
+    }
+
+    @media (max-width: 900px) {
+      .container { grid-template-columns: 1fr; }
+      .summary { position: static; }
+    }
+
+    @media (max-width: 640px) {
+      .grid { grid-template-columns: 1fr; }
+      .card-body, .card-header, .proposal-top, .summary-body { padding: 18px; }
+    }
+
+    @media print {
+      body { background: white; }
+      .hero, .form-card, .actions { display: none !important; }
+      .container { display: block; width: 100%; margin: 0; }
+      .summary { position: static; box-shadow: none; border: 0; }
+      .card { box-shadow: none; border-radius: 0; }
+      .proposal-top, .proposal-logo, .brand-logo, .total, .terms {
+        print-color-adjust: exact;
+        -webkit-print-color-adjust: exact;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="brand-logo">
+      <img src="https://ciberall.net/Ciber%20ALL%C2%AEINTERNET%20LOGO%20.png" alt="CiberALL Internet" />
+    </div>
+    <br />
+    <div class="brand"><span class="brand-dot"></span> CiberALL® The Internet Company</div>
+    <h1>Propuesta técnica y económica<br />Tecnología y red Starlink</h1>
+    <p>Cotizador para venta e instalación de Starlink en hogares, condominios, negocios, naves industriales y escenarios especiales.</p>
+  </header>
+
+  <main class="container">
+    <section class="card form-card">
+      <div class="card-header">
+        <h2>Datos de cotización</h2>
+        <p>Completa los campos para generar una propuesta personalizada.</p>
+      </div>
+      <div class="card-body">
+        <form id="quoteForm" class="grid">
+          <div class="section-title">Datos del cliente</div>
+
+          <div class="field">
+            <label for="cliente">Nombre del cliente</label>
+            <input id="cliente" type="text" placeholder="Ej. Juan Pérez" />
+          </div>
+
+          <div class="field">
+            <label for="telefono">Teléfono de contacto</label>
+            <input id="telefono" type="tel" placeholder="Ej. +52 55 0000 0000" />
+          </div>
+
+          <div class="field">
+            <label for="correo">Correo electrónico</label>
+            <input id="correo" type="email" placeholder="cliente@empresa.com" />
+          </div>
+
+          <div class="field">
+            <label for="ciudad">Ciudad y municipio</label>
+            <input id="ciudad" type="text" placeholder="Ej. Cancún, Benito Juárez" />
+          </div>
+
+          <div class="section-title">Servicio Starlink</div>
+
+          <div class="field">
+            <label for="kit">Tipo de kit Starlink</label>
+            <select id="kit">
+              <option value="Mini">Mini</option>
+              <option value="Standard">Standard</option>
+              <option value="Alto rendimiento">Alto rendimiento</option>
+              <option value="El cliente ya cuenta con equipo">El cliente ya cuenta con equipo</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="costoKit">Costo del kit Starlink</label>
+            <input id="costoKit" type="number" min="0" step="1" value="0" />
+          </div>
+
+          <div class="field">
+            <label for="instalacionTipo">Tipo de instalación</label>
+            <select id="instalacionTipo">
+              <option value="Hogar con un piso">Hogar con un piso</option>
+              <option value="Hogar con más de dos pisos">Hogar con más de dos pisos</option>
+              <option value="Condominio">Condominio</option>
+              <option value="Nave industrial">Nave industrial</option>
+              <option value="Otro tipo de escenario">Otro tipo de escenario</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="precioInstalacion">Precio de la instalación</label>
+            <input id="precioInstalacion" type="number" min="0" step="1" value="0" />
+          </div>
+
+          <div class="field">
+            <label for="anchoBanda">Ancho de banda</label>
+            <input id="anchoBanda" type="text" placeholder="Ej. hasta 220 Mbps / plan residencial" />
+          </div>
+
+          <div class="field">
+            <label for="mrc">Costo por mes / MRC</label>
+            <input id="mrc" type="number" min="0" step="1" value="0" />
+          </div>
+
+          <div class="field">
+            <label for="repetidores">Número de repetidores inalámbricos</label>
+            <input id="repetidores" type="number" min="0" step="1" value="0" />
+          </div>
+
+          <div class="field">
+            <label for="costoRepetidor">Costo por repetidor</label>
+            <input id="costoRepetidor" type="number" min="0" step="1" value="0" />
+          </div>
+
+          <div class="field">
+            <label for="viaticos">Costo aproximado en viáticos</label>
+            <input id="viaticos" type="number" min="0" step="1" value="0" />
+          </div>
+
+          <div class="field">
+            <label for="flete">Flete</label>
+            <input id="flete" type="number" min="0" step="1" value="0" />
+          </div>
+
+          <div class="field full">
+            <label for="otros">Otros productos y servicios</label>
+            <textarea id="otros" placeholder="Ej. cableado estructurado, mástil, tubería, soporte remoto, configuración de red Wi-Fi, hotspot, IP pública, etc."></textarea>
+          </div>
+
+          <div class="field">
+            <label for="costoOtros">Costo de otros productos y servicios</label>
+            <input id="costoOtros" type="number" min="0" step="1" value="0" />
+          </div>
+
+          <div class="field">
+            <label for="anticipo">Pago requerido para ordenar</label>
+            <input id="anticipo" type="text" value="100% en firme" />
+          </div>
+
+          <div class="actions full">
+            <button type="button" class="btn-primary" onclick="window.print()">Imprimir / Guardar PDF</button>
+            <button type="reset" class="btn-secondary">Limpiar cotización</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <aside class="card summary" id="proposal">
+      <div class="proposal-top">
+        <div class="proposal-logo">
+          <img src="https://ciberall.net/Ciber%20ALL%C2%AEINTERNET%20LOGO%20.png" alt="CiberALL Internet" />
+        </div>
+        <h2>CiberALL® Propuesta técnica y económica</h2>
+        <p>Tecnología y red Starlink</p>
+        <span class="quote-id" id="folio">Folio: CBA-STK-0000</span>
+      </div>
+
+      <div class="summary-body">
+        <div class="client-box">
+          <strong>Cliente:</strong> <span id="outCliente">Sin especificar</span><br />
+          <strong>Teléfono:</strong> <span id="outTelefono">Sin especificar</span><br />
+          <strong>Correo:</strong> <span id="outCorreo">Sin especificar</span><br />
+          <strong>Ciudad / municipio:</strong> <span id="outCiudad">Sin especificar</span>
+        </div>
+
+        <div class="line-item"><span>Kit Starlink seleccionado</span><span id="outKit">Mini</span></div>
+        <div class="line-item"><span>Costo del kit</span><span id="outCostoKit">$0.00</span></div>
+        <div class="line-item"><span>Tipo de instalación</span><span id="outTipoInstalacion">Hogar con un piso</span></div>
+        <div class="line-item"><span>Precio de instalación</span><span id="outInstalacion">$0.00</span></div>
+        <div class="line-item"><span>Ancho de banda</span><span id="outAnchoBanda">Por definir</span></div>
+        <div class="line-item"><span>Costo mensual / MRC</span><span id="outMrc">$0.00</span></div>
+        <div class="line-item"><span>Repetidores inalámbricos</span><span id="outRepetidores">0 x $0.00</span></div>
+        <div class="line-item"><span>Subtotal repetidores</span><span id="outSubtotalRepetidores">$0.00</span></div>
+        <div class="line-item"><span>Viáticos aproximados</span><span id="outViaticos">$0.00</span></div>
+        <div class="line-item"><span>Flete</span><span id="outFlete">$0.00</span></div>
+        <div class="line-item"><span>Otros productos y servicios</span><span id="outCostoOtros">$0.00</span></div>
+
+        <div class="client-box" style="margin-top:16px;">
+          <strong>Detalle adicional:</strong><br />
+          <span id="outOtros">Sin productos o servicios adicionales.</span>
+        </div>
+
+        <div class="total">
+          <div>
+            <small>Total propuesta MXN, incluyendo MRC del primer mes</small>
+            <strong id="outTotal">$0.00</strong>
+          </div>
+        </div>
+
+        <div class="terms">
+          <h3>Términos y condiciones</h3>
+          <ul>
+            <li>Los precios en esta cotización están expresados en pesos mexicanos, moneda nacional.</li>
+            <li>Los impuestos para México ya están incluidos.</li>
+            <li>Todos los precios están sujetos a cambio sin previo aviso.</li>
+            <li>Todas las cotizaciones tienen una vigencia de 15 días.</li>
+            <li>Para ordenar se requiere el pago <strong id="outAnticipo">100% en firme</strong>.</li>
+          </ul>
+        </div>
+
+        <div class="print-order-box">
+          <strong>Si tiene dudas o desea ordenar siga este enlace:</strong><br />
+          <a href="https://ipviasatelite.com/ordena/" target="_blank">https://ipviasatelite.com/ordena/</a>
+        </div>
+
+        <p class="footer-note">CiberALL® · Conectividad de misión crítica · Internet vía satélite con tecnología Starlink</p>
+      </div>
+    </aside>
+  </main>
+
+  <script>
+    const money = new Intl.NumberFormat('es-MX', {
+      style: 'currency',
+      currency: 'MXN'
+    });
+
+    const fields = [
+      'cliente', 'telefono', 'correo', 'ciudad', 'kit', 'costoKit',
+      'instalacionTipo', 'precioInstalacion', 'anchoBanda', 'mrc', 'repetidores',
+      'costoRepetidor', 'viaticos', 'flete', 'otros', 'costoOtros', 'anticipo'
+    ];
+
+    function getValue(id) {
+      return document.getElementById(id).value.trim();
+    }
+
+    function getNumber(id) {
+      return Number(document.getElementById(id).value) || 0;
+    }
+
+    function setText(id, value) {
+      document.getElementById(id).innerText = value;
+    }
+
+    function generateFolio() {
+      const now = new Date();
+      const y = String(now.getFullYear()).slice(-2);
+      const m = String(now.getMonth() + 1).padStart(2, '0');
+      const d = String(now.getDate()).padStart(2, '0');
+      const rand = Math.floor(Math.random() * 9000 + 1000);
+      setText('folio', `Folio: CBA-STK-${y}${m}${d}-${rand}`);
+    }
+
+    function updateQuote() {
+      const cliente = getValue('cliente') || 'Sin especificar';
+      const telefono = getValue('telefono') || 'Sin especificar';
+      const correo = getValue('correo') || 'Sin especificar';
+      const ciudad = getValue('ciudad') || 'Sin especificar';
+      const kit = getValue('kit');
+      const costoKit = getNumber('costoKit');
+      const instalacionTipo = getValue('instalacionTipo');
+      const precioInstalacion = getNumber('precioInstalacion');
+      const anchoBanda = getValue('anchoBanda') || 'Por definir';
+      const mrc = getNumber('mrc');
+      const repetidores = getNumber('repetidores');
+      const costoRepetidor = getNumber('costoRepetidor');
+      const subtotalRepetidores = repetidores * costoRepetidor;
+      const viaticos = getNumber('viaticos');
+      const flete = getNumber('flete');
+      const otros = getValue('otros') || 'Sin productos o servicios adicionales.';
+      const costoOtros = getNumber('costoOtros');
+      const anticipo = getValue('anticipo') || '100% en firme';
+      const total = costoKit + precioInstalacion + mrc + subtotalRepetidores + viaticos + flete + costoOtros;
+
+      setText('outCliente', cliente);
+      setText('outTelefono', telefono);
+      setText('outCorreo', correo);
+      setText('outCiudad', ciudad);
+      setText('outKit', kit);
+      setText('outCostoKit', money.format(costoKit));
+      setText('outTipoInstalacion', instalacionTipo);
+      setText('outInstalacion', money.format(precioInstalacion));
+      setText('outAnchoBanda', anchoBanda);
+      setText('outMrc', money.format(mrc));
+      setText('outRepetidores', `${repetidores} x ${money.format(costoRepetidor)}`);
+      setText('outSubtotalRepetidores', money.format(subtotalRepetidores));
+      setText('outViaticos', money.format(viaticos));
+      setText('outFlete', money.format(flete));
+      setText('outOtros', otros);
+      setText('outCostoOtros', money.format(costoOtros));
+      setText('outAnticipo', anticipo);
+      setText('outTotal', money.format(total));
+    }
+
+    fields.forEach(id => {
+      document.getElementById(id).addEventListener('input', updateQuote);
+      document.getElementById(id).addEventListener('change', updateQuote);
+    });
+
+    document.getElementById('quoteForm').addEventListener('reset', () => {
+      setTimeout(updateQuote, 0);
+    });
+
+    generateFolio();
+    updateQuote();
+  </script>
+</body>
+</html>
+
