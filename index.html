@@ -323,6 +323,74 @@
             color: var(--accent);
         }
 
+        /* PRECIOS */
+        .pricing-grid {
+            margin-top: 18px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 14px;
+        }
+
+        .pricing-card {
+            border: 1px solid var(--borde);
+            border-radius: 12px;
+            padding: 18px 16px;
+            background: radial-gradient(circle at top, #12144D 0%, #000000 70%);
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .pricing-card h3 {
+            margin-bottom: 2px;
+        }
+
+        .pricing-card .price {
+            font-family: "Russo One", system-ui, sans-serif;
+            color: var(--accent);
+            font-size: 1.4rem;
+        }
+
+        .pricing-card .price small {
+            font-family: "Exo", sans-serif;
+            font-size: 0.7rem;
+            color: var(--texto);
+            text-transform: uppercase;
+        }
+
+        .pricing-note {
+            margin-top: 14px;
+            font-size: 0.82rem;
+            border-left: 3px solid var(--accent);
+            padding-left: 10px;
+        }
+
+        .pricing-note strong {
+            color: var(--accent);
+        }
+
+        /* FORMULARIO DE SOLICITUD EMBEBIDO */
+        .embed-form-wrapper {
+            margin-top: 20px;
+            border: 1px solid var(--borde);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(168, 255, 0, 0.15);
+        }
+
+        .embed-form-wrapper iframe {
+            display: block;
+            width: 100%;
+            height: 1100px;
+            border: none;
+            background: #ffffff;
+        }
+
+        .embed-form-fallback {
+            margin-top: 8px;
+            font-size: 0.8rem;
+        }
+
         /* CONTACTO */
         #contacto-starlink .contact-info p {
             margin-bottom: 6px;
@@ -538,9 +606,11 @@
                     <li><a href="#hero">Inicio</a></li>
                     <li><a href="#soporte-starlink-mexico">Soporte</a></li>
                     <li><a href="#instalacion-starlink-mexico">Instalación</a></li>
+                    <li><a href="#precios-instalacion-starlink">Precios</a></li>
                     <li><a href="#venta-equipo-starlink">Venta</a></li>
                     <li><a href="#starlink-wisp">WISP</a></li>
                     <li><a href="#galeria-starlink">Escenarios</a></li>
+                    <li><a href="https://speedtest.ipviasatelite.net/" target="_blank" rel="noopener">Speedtest</a></li>
                     <li><a href="#contacto-starlink">Contacto</a></li>
                 </ul>
             </nav>
@@ -625,6 +695,62 @@
                     <li>Configuración inicial en la app de Starlink</li>
                     <li>Pruebas de velocidad y estabilidad antes de entregar</li>
                 </ul>
+            </div>
+        </section>
+
+        <section id="precios-instalacion-starlink">
+            <div class="container section-inner">
+                <h2>Precios de Instalación Starlink México</h2>
+                <p>
+                    Precios claros para tu <strong>instalación Starlink</strong>, sin sorpresas. Elige la opción
+                    según tu proyecto y solicita tu cotización con el formulario más abajo.
+                </p>
+
+                <div class="pricing-grid">
+                    <div class="pricing-card">
+                        <h3>Instalación básica</h3>
+                        <p class="price">$4,000 MXN <small>+ IVA</small></p>
+                        <p>Ideal para hogares y negocios con instalación estándar en techo, poste o azotea.</p>
+                    </div>
+
+                    <div class="pricing-card">
+                        <h3>Instalación Pro</h3>
+                        <p class="price">$6,000 MXN <small>+ IVA</small></p>
+                        <p>Para edificios e industria: mayor complejidad de montaje, altura y accesos.</p>
+                    </div>
+
+                    <div class="pricing-card">
+                        <h3>Instalación en automóvil</h3>
+                        <p class="price">$10,000 MXN <small>+ IVA</small></p>
+                        <p>Integración de Starlink en vehículos, vans y unidades móviles.</p>
+                    </div>
+                </div>
+
+                <div class="pricing-note">
+                    <p><strong>No incluye viáticos.</strong></p>
+                    <p>
+                        El monto final puede variar por complejidad, altura, accesos, materiales, obra civil,
+                        integraciones y/o ubicación.
+                    </p>
+                    <p>
+                        <strong>Nota:</strong> los precios son + IVA. En caso de requerir factura, llene los datos
+                        del formulario y se le enviará la cotización junto con la cuenta fiscal.
+                    </p>
+                </div>
+
+                <h3 style="margin-top:22px;">Solicita tu instalación o cotización</h3>
+                <p>Completa el formulario y nuestro equipo te contactará con tu cotización.</p>
+                <div class="embed-form-wrapper">
+                    <iframe
+                        src="https://solicitud.ipviasatelite.net/"
+                        title="Formulario de solicitud CiBERALL"
+                        loading="lazy">
+                    </iframe>
+                </div>
+                <p class="embed-form-fallback">
+                    ¿No carga el formulario? Ábrelo directamente aquí:
+                    <a href="https://solicitud.ipviasatelite.net/" target="_blank" rel="noopener">solicitud.ipviasatelite.net</a>
+                </p>
             </div>
         </section>
 
@@ -883,6 +1009,13 @@
                                 🔹 Telegram @ciberall
                             </a>
                         </div>
+
+                        <div class="contact-extra-cta">
+                            <p>¿Ya tienes Starlink? Prueba tu velocidad:</p>
+                            <a href="https://speedtest.ipviasatelite.net/" target="_blank" rel="noopener" class="btn-telegram">
+                                📶 Speedtest CiBERALL
+                            </a>
+                        </div>
                     </div>
 
                     <!-- Formulario a WhatsApp -->
@@ -983,6 +1116,15 @@
                         Política de Privacidad
                     </a>
                 </p>
+                <p>
+                    <a href="https://speedtest.ipviasatelite.net/" target="_blank" rel="noopener">
+                        Speedtest CiBERALL
+                    </a>
+                    ·
+                    <a href="https://solicitud.ipviasatelite.net/" target="_blank" rel="noopener">
+                        Solicitud de instalación
+                    </a>
+                </p>
                 <p class="footer-back-top">
                     <a href="#top">Volver arriba ⤴</a>
                 </p>
@@ -1021,30 +1163,8 @@
         })();
     </script>
 
-    <!-- Código de instalación Cliengo para www.ciberall.com -->
-    <script type="text/javascript">
-        (function () {
-            var ldk = document.createElement('script');
-            ldk.type = 'text/javascript';
-            ldk.async = true;
-            ldk.src = 'https://s.cliengo.com/weboptimizer/617028df6c5bf9002a081b31/617028e16c5bf9002a081b37.js?platform=view_installation_code';
-            var s = document.getElementsByTagName('script')[0];
-            s.parentNode.insertBefore(ldk, s);
-        })();
-    </script>
-
-    <!--Start of Tawk.to Script-->
-    <script type="text/javascript">
-        var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-        (function(){
-            var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-            s1.async=true;
-            s1.src='https://embed.tawk.to/66009e151ec1082f04dab551/1hpp6j0rp';
-            s1.charset='UTF-8';
-            s1.setAttribute('crossorigin','*');
-            s0.parentNode.insertBefore(s1,s0);
-        })();
-    </script>
-    <!--End of Tawk.to Script-->
+    <!-- Chatbot propio CiBERALL -->
+    <script>window.CHATBOT_API_URL="https://64-177-86-97.sslip.io/api/chat";</script>
+    <script src="https://64-177-86-97.sslip.io/widget.js"></script>
 </body>
 </html>
